@@ -1,0 +1,9 @@
+<div class="absolute top-0 w-1/2 h-full overflow-hidden transition-all duration-[600ms] ease-in-out rounded-[150px_0_0_100px] z-10" [ngClass]="{'left-0 rounded-[0_150px_100px_0]': actualTemplate() == 'login', 'left-1/2 rounded-[150px_0_0_100px]': actualTemplate() != 'login'}">
+    <div class="bg-gradient-to-r from-indigo-400 to-indigo-800 text-white absolute left-[-100%] h-full w-[200%] transition-transform duration-[600ms] ease-in-out">
+        @if (actualTemplate() === "login") {
+            <login-template (showLogin)="showLoginForm()" />
+        } @else {
+            <register-template (showRegister)="showRegisterForm()" />
+        }
+    </div>
+</div>

@@ -1,0 +1,7 @@
+<div class="h-screen flex flex-col justify-center items-center bg-gradient-to-r from-white to-indigo-300">
+    <div class="container bg-white relative shadow-xl rounded-3xl overflow-hidden w-[768px] min-h-[480px] max-w-full" [ngClass]="{'active': showTemplate() == 'login'}">
+        <login />
+        <register />
+        <toggle (changeToggle)="changeTemplate($event)" />
+    </div>
+</div>
