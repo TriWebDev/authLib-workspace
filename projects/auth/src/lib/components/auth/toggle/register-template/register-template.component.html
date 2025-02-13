@@ -1,5 +1,8 @@
-<div class="register-template-container">
-    <div class="register-template-title">Hello, Friend!</div>
-    <p class="register-template-text">Register with your personal details to use all of the site features</p>
-    <button class="register-template-button" (click)="toggleTemplate()">Sign Up</button>
+<div class="absolute top-0 right-0 w-1/2 h-full flex flex-col items-center justify-center px-8 text-center transition-transform duration-[600ms] ease-in-out">
+    <h1 class="text-2xl leading-4 tracking-wide my-5 font-bold">Hello, Friend!</h1>
+    <p class="text-sm mb-4">Register with your personal details to use all of the site features</p>
+    <button (click)="toggleTemplate()"
+        class="bg-transparent border border-white text-white text-xs px-11 py-3 rounded-lg font-semibold uppercase mt-3 cursor-pointer">
+        Sign Up
+    </button>
 </div>
