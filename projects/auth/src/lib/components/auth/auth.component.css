@@ -1,8 +1,26 @@
+.main-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right, #fff, oklch(0.785 0.115 274.713));
+}
+
+
 .container {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
+    position: relative;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    width: 768px;
+    min-height: 480px;
+    max-width: 100%;
+    background-color: #fff;
 }
 
 .container.active .sign-in {
