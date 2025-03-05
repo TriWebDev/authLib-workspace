@@ -23,6 +23,13 @@
     background-color: #fff;
 }
 
+
+@media (max-width: 800px) {
+    .container {
+        width: 400px;
+    }
+}
+
 .container.active .sign-in {
     transform: translateX(100%);
 }
