@@ -11,6 +11,7 @@ import { NgClass } from '@angular/common';
 })
 export class ToggleComponent {
     protected initialTemplate = input<'login' | 'register'>('register');
+    // TODO: Change the styles in the register component when initialTemplate is set to 'login'
     protected actualTemplate = signal<'login' | 'register'>(this.initialTemplate());
     protected changeToggle = output<'login' | 'register'>();
 

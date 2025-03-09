@@ -1,8 +1,11 @@
-<div class="login-container sign-in">
+<div class="login-container sign-in" [ngClass]="{'invisible': invisible()}">
     <form class="login-form">
       <div class="login-header">Sign In</div>
       <input class="login-input" type="email" placeholder="Email">
       <input class="login-input" type="password" placeholder="Password">
       <button class="login-button">Sign In</button>
+      @if (isSmallDevice) {
+          <button style="margin-top: 20px;" (click)="changeToSignUpForm($event)">Change to sign up</button>
+      }
     </form>
   </div>

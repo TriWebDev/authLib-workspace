@@ -12,7 +12,17 @@ import { NgClass } from '@angular/common';
     encapsulation: ViewEncapsulation.None
 })
 export class AuthComponent {
+    // The showTemplate variable is for showing an extra component (toggle) in bigger devices, for changing between forms
     protected showTemplate = signal<'login' | 'register'>('register');
+
+    // In smaller devices, the previous logic is managed only through the register and login components, through opacity
+    protected showForm = signal<'login' | 'register'>('login');
+
+
+    changeForm(form: 'register' | 'login') {
+        this.showForm.set(form);
+    }
+
 
     changeTemplate(template: 'login' | 'register') {
         this.showTemplate.set(template);

@@ -7,11 +7,18 @@
     opacity: 0%;
     z-index: 1;
     transition: all 0.6s ease-in-out;
-
+    /*
+    I think that the problem of not seeing the animation correctly is bc both components have it. Only one should
+    have the animation and it should be changing everytime we click the button in the toggle component
+    */
     @media (max-width: 800px) {
         & {
             width: 100%;
         }
+    }
+
+    &.visible {
+        opacity: 100%;
     }
 
 
