@@ -1,7 +1,7 @@
 import { Component, signal, ViewEncapsulation } from '@angular/core';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { ToggleComponent } from "./toggle/toggle.component";
+import { LoginComponent } from './subcomponents/login/login.component';
+import { RegisterComponent } from './subcomponents/register/register.component';
+import { ToggleComponent } from "./subcomponents/toggle/toggle.component";
 import { NgClass } from '@angular/common';
 
 @Component({
