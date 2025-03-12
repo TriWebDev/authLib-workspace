@@ -69,10 +69,11 @@
             cursor: pointer;
         }
 
-        & .change-button {
+        & .change-text {
             display: flex;
             align-items: center;
             justify-items: center;
+            text-align: center;
             flex-direction: column;
             margin-top: 2rem;
             width: 15rem;
@@ -80,14 +81,17 @@
             font-weight: 600;
         }
 
-        & .change-button-text {
+        & .change-button {
             display: inline-block;
             color: #372aac;
             cursor: pointer;
             user-select: none;
+            font-weight: 600;
+            font-size: 1rem;
+            background-color: #ffffff;
         }
 
-        & .change-button-text:active {
+        & .change-button:active {
             /* transform: translateY(-2px); text rises a little bit */
             outline: none;
         }

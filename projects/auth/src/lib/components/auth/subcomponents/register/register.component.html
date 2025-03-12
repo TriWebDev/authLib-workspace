@@ -6,7 +6,7 @@
         <input class="register-input" type="password" placeholder="Password">
         <button class="register-button">Sign Up</button>
         @if (isSmallDevice) {
-            <div class="change-button" (click)="changeToLoginForm($event)">Alredy have an account? <div class="change-button-text">Click here</div></div>
+            <div class="change-text">Already have an account? <button class="change-button" (click)="changeToLoginForm($event)">Click here</button></div>
         }
     </form>
 </div>
