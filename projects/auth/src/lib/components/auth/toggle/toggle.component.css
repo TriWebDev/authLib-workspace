@@ -38,7 +38,7 @@
     }
 
     & .toggle-exchanger{
-        background: linear-gradient(to right, color-mix(in srgb, var(--primary-color), white 45%), var(--primary-color));
+        background: linear-gradient(to right, color-mix(in srgb, var(--primary-color), white 40%), var(--primary-color));
         color: var(--secondary-color);
         position: absolute;
         left: -100%;

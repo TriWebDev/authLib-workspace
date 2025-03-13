@@ -89,6 +89,8 @@
             font-weight: 600;
             font-size: 1rem;
             background-color: var(--secondary-color);
+            border: none;
+            text-decoration: underline;
         }
 
         & .change-button:active {
