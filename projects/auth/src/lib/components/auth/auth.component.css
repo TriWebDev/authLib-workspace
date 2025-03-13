@@ -1,3 +1,9 @@
+:host{
+    --primary-color: #372aac;
+    --secondary-color: #fff;
+    --input-color: #e5e7eb;
+}
+
 .main-container {
     height: 100vh;
     display: flex;
@@ -27,7 +33,7 @@
     width: 768px;
     min-height: 480px;
     max-width: 100%;
-    background-color: #fff;
+    background-color: var(--secondary-color);
 }
 
 

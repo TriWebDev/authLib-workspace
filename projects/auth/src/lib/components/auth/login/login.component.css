@@ -19,7 +19,7 @@
     }
 
     & .login-form {
-        background-color: #fff;
+        background-color: var(--secondary-color);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -36,7 +36,7 @@
         }
 
         & .login-input {
-            background-color: #e5e7eb;
+            background-color: var(--input-color);
             border-style: none;
             margin-block: 0.5rem;
             padding-inline: 1rem;
@@ -49,8 +49,8 @@
         }
 
         & .login-button {
-            background-color: #372aac;
-            color: #fff;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
             font-size: 0.75rem;
             line-height: 1.3;
             padding-inline: 2.75rem;
@@ -79,12 +79,12 @@
 
         & .change-button {
             display: inline-block;
-            color: #372aac;
+            color: var(--primary-color);
             cursor: pointer;
             user-select: none;
             font-weight: 600;
             font-size: 1rem;
-            background-color: #ffffff;
+            background-color: var(--secondary-color);
         }
 
         & .change-button:active {
