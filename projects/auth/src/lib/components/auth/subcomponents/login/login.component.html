@@ -1,5 +1,5 @@
 <div class="login-container sign-in" [ngClass]="{'invisible': invisible()}">
-    <form class="login-form">
+    <form (submit)="sendForm()" class="login-form">
       <div class="login-header">Sign In</div>
       <input class="login-input" type="email" placeholder="Email">
       <input class="login-input" type="password" placeholder="Password">

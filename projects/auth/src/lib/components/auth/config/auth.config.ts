@@ -6,4 +6,4 @@ export interface AuthConfig {
     /* There will be more configurations in future versions */
 }
 
-export const AUTH_CONFIG = new InjectionToken<AuthConfig>('auth.config');
+export const AUTH_CONFIG = new InjectionToken<AuthConfig>('AUTH_CONFIG');
