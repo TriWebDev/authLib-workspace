@@ -19,7 +19,12 @@ import { NgClass } from '@angular/common';
     encapsulation: ViewEncapsulation.ShadowDom,
 })
 export class AuthComponent implements OnInit {
-    public theme = input<'classicB&W' | 'NeoViolet'>('classicB&W');
+    public theme = input<'classicB&W' | 'neoViolet' | 'custom'>('custom');
+
+    public primary = input<string>('#372aac');
+    public secundary = input<string>('#fff');
+    public input = input<string>('#e5e7eb');
+
     // The showTemplate variable is for showing an extra component (toggle) in bigger devices, for changing between forms
     protected showTemplate = signal<'login' | 'register'>('register');
     // In smaller devices, the previous logic is managed only through the register and login components, through opacity
@@ -29,7 +34,13 @@ export class AuthComponent implements OnInit {
 
     /* Logic when initialising component */
     ngOnInit(): void {
-        this.updateTheme();
+        if (this.theme() === 'custom') {
+            this.setComponentStyles('--primary-color', this.primary());
+            this.setComponentStyles('--secondary-color', this.secundary());
+            this.setComponentStyles('--input-color', this.input());
+        } else {
+            this.updateTheme();
+        }
     }
 
     private updateTheme() {
@@ -43,11 +54,12 @@ export class AuthComponent implements OnInit {
         switch (this.theme()) {
             case 'classicB&W':
                 return ['#111', '#fff', '#ddd'];
-
-            // return ['#fff', '#000', '#999']
-            case 'NeoViolet':
-            default:
+            case 'neoViolet':
                 return ['#372aac', '#fff', '#e5e7eb'];
+            default:
+                // return ['#372aac', '#fff', '#e5e7eb'];
+                return ['#111', '#fff', '#ddd'];
+
         }
     }
 
