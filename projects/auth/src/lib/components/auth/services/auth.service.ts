@@ -7,19 +7,22 @@ import { AUTH_CONFIG } from '../config/auth.config';
 export class AuthService {
     private http = inject(HttpClient);
     private config = inject(AUTH_CONFIG);
-    private userSubject = new BehaviorSubject<any>(null);
-    user$ = this.userSubject.asObservable();
+
 
     login(credentials: { email: string; password: string }) {
         return this.http.post(`${this.config.apiUrl}/login`, credentials);
     }
 
-    logout() {
-        localStorage.removeItem('token');
-        this.userSubject.next(null);
+    register(userInfo: { name: string, email: string; password: string }) {
+        return this.http.post(`${this.config.apiUrl}/create`, userInfo);
     }
 
-    isAuthenticated(): boolean {
-        return !!localStorage.getItem('token');
-    }
+    // logout() {
+    //     localStorage.removeItem('token');
+    //     this.userSubject.next(null);
+    // }
+
+    // isAuthenticated(): boolean {
+    //     return !!localStorage.getItem('token');
+    // }
 }

@@ -6,8 +6,6 @@ import { AUTH_INTERCEPTOR } from '../interceptors/auth.interceptor';
 
 export function provideAuth(config: AuthConfig): Provider[] {
     return [
-        { provide: AUTH_CONFIG, useValue: config },
-        AuthService,
-        { provide: HTTP_INTERCEPTORS, useValue: AUTH_INTERCEPTOR, multi: true },
+        { provide: AUTH_CONFIG, useValue: config}
     ];
 }

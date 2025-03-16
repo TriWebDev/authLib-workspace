@@ -1,9 +1,9 @@
 <div class="register-container sign-up" [ngClass]="{'visible': !invisible()}">
-    <form class="register-form">
+    <form class="register-form" (submit)="register()">
         <div class="register-title">Create Account</div>
-        <input class="register-input" type="text" placeholder="Name">
-        <input class="register-input" type="email" placeholder="Email">
-        <input class="register-input" type="password" placeholder="Password">
+        <input class="register-input" name="name" [(ngModel)]="userInfo.name" type="text" placeholder="Name">
+        <input class="register-input" name="email" [(ngModel)]="userInfo.email" type="email" placeholder="Email">
+        <input class="register-input" name="password" [(ngModel)]="userInfo.password" type="password" placeholder="Password">
         <button class="register-button">Sign Up</button>
         @if (isSmallDevice) {
             <div class="change-text">Already have an account? <button class="change-button" (click)="changeToLoginForm($event)">Click here</button></div>
