@@ -1,6 +1,5 @@
 import { NgClass } from '@angular/common';
 import { Component, input, output, signal } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'login',
@@ -15,17 +14,10 @@ export class LoginComponent  {
     protected isSmallDevice = window.matchMedia("(max-width: 800px)").matches;
     public invisible = input<boolean>(false);
     protected showRegisterForm = output<'register'>();
-    protected user = { email: '', password: ''}
-
-    constructor(private authService: AuthService) {}
 
     changeToSignUpForm(event: MouseEvent) {
         event.preventDefault();
         this.showRegisterForm.emit('register');
-    }
-
-    sendForm() {
-
     }
 
 }
