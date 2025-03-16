@@ -1,6 +1,5 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
 import { AUTH_CONFIG } from '../config/auth.config';
 
 @Injectable({ providedIn: 'root' })
@@ -16,13 +15,4 @@ export class AuthService {
     register(userInfo: { name: string, email: string; password: string }) {
         return this.http.post(`${this.config.apiUrl}/create`, userInfo);
     }
-
-    // logout() {
-    //     localStorage.removeItem('token');
-    //     this.userSubject.next(null);
-    // }
-
-    // isAuthenticated(): boolean {
-    //     return !!localStorage.getItem('token');
-    // }
 }

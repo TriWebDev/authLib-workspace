@@ -29,7 +29,10 @@ export class LoginComponent  {
 
     /* Form send logic */
     login() {
-        this.authService.login(this.userInfo).subscribe();
+        this.authService.login(this.userInfo).subscribe((response) => {
+            const token = response.toString();
+            localStorage.setItem('token', token);
+        });
     }
 
 }
