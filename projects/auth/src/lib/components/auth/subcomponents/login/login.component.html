@@ -1,0 +1,11 @@
+<div class="login-container sign-in" [ngClass]="{'invisible': invisible()}">
+    <form class="login-form" (submit)="login()">
+      <div class="login-header">Sign In</div>
+      <input class="login-input" type="email" name="email" [(ngModel)]="userInfo.email" placeholder="Email">
+      <input class="login-input" type="password" name="password" [(ngModel)]="userInfo.password" placeholder="Password">
+      <button class="login-button">Sign In</button>
+      @if (isSmallDevice) {
+          <div class="change-text">Don’t have an account yet? <button type="submit" class="change-button" (click)="changeToSignUpForm($event)">Click here</button></div>
+      }
+    </form>
+  </div>
