@@ -5,7 +5,7 @@
         <input class="register-input" name="email" [(ngModel)]="userInfo.email" type="email" placeholder="Email">
         <input class="register-input" name="password" [(ngModel)]="userInfo.password" type="password" placeholder="Password">
         <button class="register-button">Sign Up</button>
-        @if (isSmallDevice) {
+        @if (isSmallDevice()) {
             <div class="change-text">Already have an account? <button class="change-button" (click)="changeToLoginForm($event)">Click here</button></div>
         }
     </form>

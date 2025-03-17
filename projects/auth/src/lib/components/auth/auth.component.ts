@@ -22,6 +22,9 @@ export class AuthComponent implements OnInit {
     protected showTemplate = signal<'login' | 'register'>('register');
     // In smaller devices, the previous logic is managed only through the register and login components, through opacity
     protected showForm = signal<'login' | 'register'>('login');
+    protected isSmallDevice = signal(
+        window.matchMedia('(max-width: 800px)').matches
+    );
 
     constructor(private el: ElementRef) { }
 
@@ -34,6 +37,7 @@ export class AuthComponent implements OnInit {
         } else {
             this.updateTheme();
         }
+        this.startSmallerDeviceChecker();
     }
 
     private updateTheme() {
@@ -52,7 +56,6 @@ export class AuthComponent implements OnInit {
             default:
                 // return ['#372aac', '#fff', '#e5e7eb'];
                 return ['#111', '#fff', '#ddd'];
-
         }
     }
 
@@ -61,6 +64,17 @@ export class AuthComponent implements OnInit {
         // this.renderer.setStyle(hostElement, variableName, color);
         hostElement.style.setProperty(variableName, color);
     }
+
+    private startSmallerDeviceChecker() {
+        const mediaQuery = window.matchMedia('(max-width: 800px)');
+
+        const updateScreenSize = (event: MediaQueryListEvent) => {
+            this.isSmallDevice.set(event.matches);
+        };
+
+        mediaQuery.addEventListener('change', updateScreenSize);
+    }
+
     /* End logic when initialising component */
 
     /* Events logic */

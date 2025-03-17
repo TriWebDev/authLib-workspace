@@ -1,19 +1,24 @@
 import { NgClass } from '@angular/common';
-import { Component, inject, input, output, signal } from '@angular/core';
+import {
+    Component,
+    inject,
+    input,
+    OnInit,
+    output,
+    signal,
+} from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'login',
-  imports: [NgClass, FormsModule],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+    selector: 'login',
+    imports: [NgClass, FormsModule],
+    templateUrl: './login.component.html',
+    styleUrl: './login.component.css',
 })
+export class LoginComponent {
+    public isSmallDevice = input<boolean>(window.matchMedia('(max-width: 800px)').matches);
 
-export class LoginComponent  {
-    // This might be changed in the future to events just in case the window screen width could change
-    // Posible solution -> BreakpointObserver
-    protected isSmallDevice = window.matchMedia("(max-width: 800px)").matches;
     public invisible = input<boolean>(false);
     protected showRegisterForm = output<'register'>();
 
@@ -34,5 +39,4 @@ export class LoginComponent  {
             localStorage.setItem('token', token);
         });
     }
-
 }

@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, inject, input, output, signal } from '@angular/core';
+import { Component, inject, input, OnInit, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 
@@ -10,7 +10,7 @@ import { AuthService } from '../../services/auth.service';
     styleUrl: './register.component.css',
 })
 export class RegisterComponent {
-    protected isSmallDevice = window.matchMedia('(max-width: 800px)').matches;
+    public isSmallDevice = input<boolean>(window.matchMedia('(max-width: 800px)').matches);
     public invisible = input<boolean>();
     protected showLoginForm = output<'login'>();
 

@@ -1,7 +1,7 @@
 <div class="main-container">
     <div class="container" [ngClass]="{'active': showTemplate() == 'login'}">
-            <login (showRegisterForm)="changeForm($event)" [invisible]="(showForm() == 'register')" />
-            <register (showLoginForm)="changeForm($event)" [invisible]="(showForm() == 'login')"/>
+            <login (showRegisterForm)="changeForm($event)" [isSmallDevice]="isSmallDevice()" [invisible]="(showForm() == 'register')" />
+            <register (showLoginForm)="changeForm($event)" [isSmallDevice]="isSmallDevice()" [invisible]="(showForm() == 'login')"/>
 
         <!-- This component won't be needed if we're on smaller devices -->
         <toggle (changeToggle)="changeTemplate($event)" />
