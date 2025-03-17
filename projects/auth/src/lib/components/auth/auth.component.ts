@@ -1,4 +1,4 @@
-import { Component, signal, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, input, OnInit, signal, ViewEncapsulation } from '@angular/core';
 import { LoginComponent } from './subcomponents/login/login.component';
 import { RegisterComponent } from './subcomponents/register/register.component';
 import { ToggleComponent } from "./subcomponents/toggle/toggle.component";
