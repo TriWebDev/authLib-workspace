@@ -65,6 +65,10 @@
             cursor: pointer;
         }
 
+        & .disabled {
+            background-color: color-mix(in srgb, var(--primary-color), #fff 40%);
+        }
+
         & .change-text {
             display: flex;
             align-items: center;
