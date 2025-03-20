@@ -1,8 +1,8 @@
 <div class="login-container sign-in" [ngClass]="{'invisible': invisible()}">
     <form class="login-form" [formGroup]="loginForm" (submit)="login()">
       <div class="login-header">Sign In</div>
-      <input class="login-input" type="email" name="email" formControlName="email" placeholder="Email">
-      <input class="login-input"  type="password" formControlName="password" name="password" placeholder="Password">
+      <input class="login-input" [ngClass]="{'invalid-input': isInvalidEmail(), 'valid-input': isValidEmail()}" type="email" name="email" formControlName="email" placeholder="Email">
+      <input class="login-input" [ngClass]="{'invalid-input': isInvalidPassword(), 'valid-input': isValidPassword()}" type="password" formControlName="password" name="password" placeholder="Password">
       <button [disabled]="!loginForm.valid" [ngClass]="{'disabled': !loginForm.valid}" class="login-button">Sign In</button>
       @if (isSmallDevice()) {
           <div class="change-text">Don’t have an account yet? <button type="submit" class="change-button" (click)="changeToSignUpForm($event)">Click here</button></div>

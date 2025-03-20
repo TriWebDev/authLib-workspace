@@ -60,3 +60,12 @@
     /* animation: move 0.6s ease-in-out; */
 }
 
+/* Styles for the forms  */
+.invalid-input {
+    border: 2px solid #f55 !important;
+}
+
+.valid-input {
+    border: 2px solid #080 !important;
+}
+/* End styles for the forms */

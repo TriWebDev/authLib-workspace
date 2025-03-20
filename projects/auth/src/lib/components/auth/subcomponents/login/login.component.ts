@@ -29,7 +29,7 @@ export class LoginComponent {
     private authService = inject(AuthService);
     protected loginForm = new FormGroup({
         email: new FormControl<string>('', { nonNullable: true, validators: [Validators.required, Validators.email]}),
-        password: new FormControl<string>('', {nonNullable: true, validators: Validators.required })
+        password: new FormControl<string>('', {nonNullable: true, validators: [Validators.required, Validators.minLength(3)] })
     });
 
     /* Visual changes */
@@ -39,9 +39,27 @@ export class LoginComponent {
     }
     /* End visual changes */
 
+    /* Form validation validations */
+    isValidEmail() {
+        return this.loginForm.controls.email.touched && this.loginForm.controls.email.valid;
+    }
+
+    isInvalidEmail() {
+        return this.loginForm.controls.email.touched && !this.loginForm.controls.email.valid;
+    }
+
+    isValidPassword() {
+        return this.loginForm.controls.password.touched && this.loginForm.controls.password.valid;
+    }
+
+    isInvalidPassword() {
+        return this.loginForm.controls.password.touched && !this.loginForm.controls.password.valid;
+    }
+    /* End form validation validations */
+
+
     /* Form send logic */
     login() {
-        // FIXME: userInfo variable must be changed to the one according to the loginForm
         const userInfo = this.loginForm.getRawValue();
         this.authService.login(userInfo).subscribe((response) => {
             const token = response.toString();
