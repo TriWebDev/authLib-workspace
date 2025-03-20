@@ -4,16 +4,22 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(to right, #fff, oklch(0.785 0.115 274.713));
+    background-image: linear-gradient(
+        to right,
+        #fff,
+        oklch(0.785 0.115 274.713)
+    );
     /* background-image: linear-gradient(45deg, oklch(0.785 0.115 274.713) ,#fff); */
 
-
-    @media (max-width:450px) {
+    @media (max-width: 450px) {
         /* Making the gradient diagonal for better color contrast */
-        background-image: linear-gradient(45deg, oklch(0.785 0.115 274.713) ,#fff);
+        background-image: linear-gradient(
+            45deg,
+            oklch(0.785 0.115 274.713),
+            #fff
+        );
     }
 }
-
 
 .container {
     margin: 0;
@@ -21,15 +27,15 @@
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
     position: relative;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
     border-radius: 1.5rem;
     overflow: hidden;
     width: 768px;
-    min-height: 480px;
+    height: 480px;
     max-width: 100%;
     background-color: #fff;
 }
-
 
 @media (max-width: 800px) {
     .container {
@@ -39,6 +45,18 @@
     @media (max-width: 450px) {
         .container {
             width: 350px;
+        }
+    }
+}
+
+@media (max-height: 500px) {
+    .container {
+        height: 400px;
+    }
+
+    @media (max-height: 400px) {
+        .container {
+            height: 350px;
         }
     }
 }
@@ -53,4 +71,3 @@
     z-index: 5;
     /* animation: move 0.6s ease-in-out; */
 }
-
