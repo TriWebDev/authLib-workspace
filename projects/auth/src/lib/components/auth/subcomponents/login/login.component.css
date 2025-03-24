@@ -67,6 +67,7 @@
 
         & .disabled {
             background-color: color-mix(in srgb, var(--primary-color), #fff 40%);
+            cursor: default;
         }
 
         & .change-text {

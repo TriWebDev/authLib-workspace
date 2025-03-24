@@ -55,6 +55,7 @@ export class LoginComponent {
     isInvalidPassword() {
         return this.loginForm.controls.password.touched && !this.loginForm.controls.password.valid;
     }
+
     /* End form validation validations */
 
 
