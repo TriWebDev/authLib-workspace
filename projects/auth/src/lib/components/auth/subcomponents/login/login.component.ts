@@ -39,7 +39,7 @@ export class LoginComponent {
     }
     /* End visual changes */
 
-    /* Form validation validations */
+    /* Form validations */
     isValidEmail() {
         return this.loginForm.controls.email.touched && this.loginForm.controls.email.valid;
     }
@@ -56,7 +56,7 @@ export class LoginComponent {
         return this.loginForm.controls.password.touched && !this.loginForm.controls.password.valid;
     }
 
-    /* End form validation validations */
+    /* End form validations */
 
 
     /* Form send logic */
@@ -66,5 +66,6 @@ export class LoginComponent {
             const token = response.toString();
             localStorage.setItem('token', token);
         });
+        this.loginForm.reset();
     }
 }

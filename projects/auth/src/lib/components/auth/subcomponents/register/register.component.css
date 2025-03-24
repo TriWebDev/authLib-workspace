@@ -81,6 +81,11 @@
             font-weight: 600;
         }
 
+        & .disabled {
+            background-color: color-mix(in srgb, var(--primary-color), #fff 40%);
+            cursor: default;
+        }
+
         & .change-button {
             display: inline-block;
             color: var(--primary-color);
