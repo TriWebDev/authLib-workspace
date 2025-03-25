@@ -9,6 +9,8 @@ import {
 } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AUTH_CONFIG } from '../../config/auth.config';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -25,8 +27,11 @@ export class LoginComponent {
     public invisible = input<boolean>(false);
     protected showRegisterForm = output<'register'>();
 
-    // protected userInfo = { email: '', password: '' };
     private authService = inject(AuthService);
+    private config = inject(AUTH_CONFIG);
+    private router = inject(Router);
+
+
     protected loginForm = new FormGroup({
         email: new FormControl<string>('', { nonNullable: true, validators: [Validators.required, Validators.email]}),
         password: new FormControl<string>('', {nonNullable: true, validators: [Validators.required, Validators.minLength(3)] })
@@ -63,9 +68,14 @@ export class LoginComponent {
     login() {
         const userInfo = this.loginForm.getRawValue();
         this.authService.login(userInfo).subscribe((response) => {
-            const token = response.toString();
-            localStorage.setItem('token', token);
+            // FIXME: Must change the logic for being able to customize messages if the reponse isn't ok
+            if (response.ok) {
+                const token = response.toString();
+                localStorage.setItem('token', token);
+                this.router.navigate([this.config.loginRedirectionUrl]);
+            } 
         });
         this.loginForm.reset();
+        
     }
 }

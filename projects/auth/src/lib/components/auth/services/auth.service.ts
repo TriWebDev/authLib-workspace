@@ -9,7 +9,7 @@ export class AuthService {
 
 
     login(credentials: { email: string; password: string }) {
-        return this.http.post(`${this.config.apiUrl}/login`, credentials);
+        return this.http.post(`${this.config.apiUrl}/login`, credentials, {observe: 'response'});
     }
 
     register(userInfo: { name: string, email: string; password: string }) {
