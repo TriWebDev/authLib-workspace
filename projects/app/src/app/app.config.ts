@@ -10,6 +10,6 @@ export const appConfig: ApplicationConfig = {
         provideZoneChangeDetection({ eventCoalescing: true }),
         provideRouter(routes),
         provideHttpClient(),
-        provideAuth({apiUrl: 'http://localhost:3000'})
+        provideAuth({apiUrl: 'http://localhost:3000', loginRedirectionUrl: 'http://localhost:4200/home' })
     ]
 };
