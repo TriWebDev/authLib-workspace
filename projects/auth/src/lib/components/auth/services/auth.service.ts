@@ -13,6 +13,6 @@ export class AuthService {
     }
 
     register(userInfo: { name: string, email: string; password: string }) {
-        return this.http.post(`${this.config.apiUrl}/create`, userInfo);
+        return this.http.post(`${this.config.apiUrl}/create`, userInfo, { observe: 'response' });
     }
 }

@@ -14,6 +14,9 @@ export class RegisterComponent {
     public invisible = input<boolean>();
     protected showLoginForm = output<'login'>();
 
+    protected feedbackChange = output<{ ok: boolean, message: string }>();
+
+
     private authService = inject(AuthService);
     protected registerForm = new FormGroup({
             name: new FormControl<string>('', { nonNullable: true, validators: [Validators.required, Validators.minLength(3)]}),
@@ -56,10 +59,37 @@ export class RegisterComponent {
 
 
     /* Form send logic */
+    // register() {
+    //     const userInfo = this.registerForm.getRawValue();
+    //     this.authService.register(userInfo).subscribe();
+    //     this.registerForm.reset();
+    // }
+
     register() {
         const userInfo = this.registerForm.getRawValue();
-        this.authService.register(userInfo).subscribe();
-        this.registerForm.reset();
+        this.authService.register(userInfo).subscribe({
+            next: (response) => {
+                if (response.ok) {
+                    // Logic for show login form
+                }
+                this.registerForm.reset();
+
+                // Restarting the feedback message if everything goes well
+                this.feedbackChange.emit({
+                    ok: true,
+                    message: 'Created account succesfully'
+                });
+            },
+            error: (errorResponse) => {
+                const sentMessage = errorResponse.error.messageToShow;
+                this.feedbackChange.emit({
+                    ok: false,
+                    // message: sentMessage ? sentMessage : 'An error has occurred'
+                    message: 'An error has occurred'
+
+                })
+            }
+        });
     }
 
 }

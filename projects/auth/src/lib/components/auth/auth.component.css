@@ -90,3 +90,11 @@
 /* End styles for the forms */
 
 
+.feedback-notification {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    transform: translateY(100%);
+    z-index: 1000;
+}

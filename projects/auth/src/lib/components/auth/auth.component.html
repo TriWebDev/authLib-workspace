@@ -1,18 +1,22 @@
 <div class="main-container">
-    @if (feedbackMessage().message) {
-        <span style="color: red; font-size: xx-large;">
-            A modal should be shown with the following message: {{feedbackMessage().message}}
-        </span>
-    }
     <div class="container" [ngClass]="{'active': showTemplate() == 'login'}">
         <login (feedbackChange)="changeFeedbackMessage($event)" (showRegisterForm)="changeForm($event)" [isSmallDevice]="isSmallDevice()"
             [invisible]="(showForm() == 'register')" />
-        <register (showLoginForm)="changeForm($event)" [isSmallDevice]="isSmallDevice()"
+        <register (feedbackChange)="changeFeedbackMessage($event)" (showLoginForm)="changeForm($event)" [isSmallDevice]="isSmallDevice()"
             [invisible]="(showForm() == 'login')" />
 
         <!-- This component won't be needed if we're on smaller devices -->
         @if (!isSmallDevice()) {
             <toggle (changeToggle)="changeTemplate($event)" />
         }
+    </div>
+    <!-- @if (feedbackMessage().message) {
+        <span style="color: red; font-size: xx-large;">
+            A modal should be shown with the following message: {{feedbackMessage().message}}
+        </span>
+    } -->
+
+    <div class="feedback-notification" [ngClass]="{'show': feedbackMessage().message}">
+        <span>{{ feedbackMessage().message || 'No hay mensaje'}}</span>
     </div>
 </div>

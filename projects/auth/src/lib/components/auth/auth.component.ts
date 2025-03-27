@@ -72,7 +72,7 @@ export class AuthComponent implements OnInit {
 
         const updateScreenSize = (event: MediaQueryListEvent) => {
             this.isSmallDevice.set(event.matches);
-            
+
             // FIXME: This should be changed to a better solution
             this.resetFormsView();
         };
