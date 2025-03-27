@@ -1,6 +1,11 @@
 <div class="main-container">
+    @if (feedbackMessage().message) {
+        <span style="color: red; font-size: xx-large;">
+            A modal should be shown with the following message: {{feedbackMessage().message}}
+        </span>
+    }
     <div class="container" [ngClass]="{'active': showTemplate() == 'login'}">
-        <login (showRegisterForm)="changeForm($event)" [isSmallDevice]="isSmallDevice()"
+        <login (feedbackChange)="changeFeedbackMessage($event)" (showRegisterForm)="changeForm($event)" [isSmallDevice]="isSmallDevice()"
             [invisible]="(showForm() == 'register')" />
         <register (showLoginForm)="changeForm($event)" [isSmallDevice]="isSmallDevice()"
             [invisible]="(showForm() == 'login')" />
