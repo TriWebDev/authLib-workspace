@@ -12,7 +12,11 @@ import { AuthService } from '../../services/auth.service';
 export class RegisterComponent {
     public isSmallDevice = input<boolean>(window.matchMedia('(max-width: 800px)').matches);
     public invisible = input<boolean>();
+    // This output is for small devices
     protected showLoginForm = output<'login'>();
+
+    // This output is for bigger devices
+    protected showTemplate = output<'register'>();
 
     protected feedbackChange = output<{ ok: boolean, message: string }>();
 
@@ -25,9 +29,18 @@ export class RegisterComponent {
     });
 
     /* Visual changes */
+    // Logic for small devices
     changeToLoginForm(event: MouseEvent) {
         event.preventDefault();
+        this.changeToLoginInSmallDevices();
+    }
+
+    changeToLoginInSmallDevices() {
         this.showLoginForm.emit('login');
+    }
+
+    changeToLoginInBiggerDevices() {
+        this.showTemplate.emit('register');
     }
     /* End visual changes */
 
@@ -59,26 +72,21 @@ export class RegisterComponent {
 
 
     /* Form send logic */
-    // register() {
-    //     const userInfo = this.registerForm.getRawValue();
-    //     this.authService.register(userInfo).subscribe();
-    //     this.registerForm.reset();
-    // }
-
     register() {
         const userInfo = this.registerForm.getRawValue();
         this.authService.register(userInfo).subscribe({
             next: (response) => {
                 if (response.ok) {
-                    // Logic for show login form
+                    this.changeToLoginInSmallDevices();
+                    // Restarting the feedback message if everything goes well
+                    this.changeToLoginInBiggerDevices();
+                    this.feedbackChange.emit({
+                        ok: true,
+                        message: 'Created account succesfully'
+                    });
                 }
                 this.registerForm.reset();
 
-                // Restarting the feedback message if everything goes well
-                this.feedbackChange.emit({
-                    ok: true,
-                    message: 'Created account succesfully'
-                });
             },
             error: (errorResponse) => {
                 const sentMessage = errorResponse.error.messageToShow;
