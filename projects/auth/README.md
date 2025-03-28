@@ -9,7 +9,7 @@
   <a href="https://github.com/TriWebDev/librariesAppTWD/issues">
     <img src="https://img.shields.io/github/issues/triwebdev/librariesAppTWD">
   </a>
-  <a href="https://github.com/IgorAntun/node-chat">
+  <a href="https://github.com/TriWebDev/librariesAppTWD">
     <img src="https://img.shields.io/badge/version-1.0.0-green.svg">
   </a>
   <a href="">
@@ -24,9 +24,9 @@ This is a component powered by Angular fully customizable via inputs that provid
 <p align="center">
   <a href="#how-to-use">How To Use</a> •
   <a href="#download">Download</a> •
-  <a href="#credits">Credits</a> •
-  <a href="#related">Related</a> •
-  <a href="#license">License</a>
+  <a href="#authors">Authors</a>
+  <!-- <a href="#related">Related</a> • -->
+  <!-- <a href="#license">License</a> -->
 </p>
 
 ## How To Use
