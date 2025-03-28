@@ -1,4 +1,4 @@
-:host{
+:host {
     --primary-color: #372aac;
     --secondary-color: #fff;
     --input-color: #e5e7eb;
@@ -10,20 +10,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(
-        to right,
-        #fff,
-        oklch(0.785 0.115 274.713)
-    );
-    /* background-image: linear-gradient(45deg, oklch(0.785 0.115 274.713) ,#fff); */
+    background-image: linear-gradient(to right, #fff 50%, var(--primary-color));
+    /* background-image: linear-gradient(45deg, var(--primary-color) ,#fff); */
 
     @media (max-width: 450px) {
         /* Making the gradient diagonal for better color contrast */
-        background-image: linear-gradient(
-            45deg,
-            oklch(0.785 0.115 274.713),
-            #fff
-        );
+        background-image: linear-gradient(45deg, var(--primary-color), #fff);
     }
 }
 
@@ -89,4 +81,29 @@
 
 /* End styles for the forms */
 
+.feedback-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 9999;
+}
 
+@media (max-width: 500px) {
+    .feedback-notification {
+        height: 20px;
+        top: 20px;
+    }
+}
+
+.feedback-notification.show {
+    opacity: 1;
+    transform: translateX(0);
+}

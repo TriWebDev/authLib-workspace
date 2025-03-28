@@ -1,4 +1,4 @@
-import { Component, input, output, signal } from '@angular/core';
+import { Component, input, model, output, signal } from '@angular/core';
 import { LoginTemplateComponent } from "./login-template/login-template.component";
 import { RegisterTemplateComponent } from "./register-template/register-template.component";
 import { NgClass } from '@angular/common';
@@ -12,12 +12,12 @@ import { NgClass } from '@angular/common';
 export class ToggleComponent {
     protected initialTemplate = input<'login' | 'register'>('register');
     // TODO: Change the styles in the register component when initialTemplate is set to 'login'
-    protected actualTemplate = signal<'login' | 'register'>(this.initialTemplate());
+    public actualTemplate = model<'login' | 'register'>(this.initialTemplate());
     protected changeToggle = output<'login' | 'register'>();
 
     showRegisterForm() {
         this.actualTemplate.set('login');
-        this.changeToggle.emit('login')
+        this.changeToggle.emit('login');
     }
 
     showLoginForm() {

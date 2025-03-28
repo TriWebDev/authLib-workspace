@@ -26,6 +26,8 @@ export class AuthComponent implements OnInit {
         window.matchMedia('(max-width: 800px)').matches
     );
 
+    protected feedbackMessage = signal<{ ok: boolean, message: string }>({ ok: true, message: ''});
+
     constructor(private el: ElementRef) { }
 
     /* Logic when initialising component */
@@ -70,7 +72,7 @@ export class AuthComponent implements OnInit {
 
         const updateScreenSize = (event: MediaQueryListEvent) => {
             this.isSmallDevice.set(event.matches);
-            
+
             // FIXME: This should be changed to a better solution
             this.resetFormsView();
         };
@@ -91,5 +93,14 @@ export class AuthComponent implements OnInit {
 
     protected changeTemplate(template: 'login' | 'register') {
         this.showTemplate.set(template);
+    }
+
+    protected changeFeedbackMessage(feedbackMessage: { ok: boolean, message: string }) {
+        this.feedbackMessage.set(feedbackMessage);
+
+        // The notification dissapear after 5 seconds
+        setTimeout(() => {
+            this.feedbackMessage.set({ ok: true, message: '' });
+        }, 5000);
     }
 }

@@ -1,13 +1,18 @@
 <div class="main-container">
     <div class="container" [ngClass]="{'active': showTemplate() == 'login'}">
-        <login (showRegisterForm)="changeForm($event)" [isSmallDevice]="isSmallDevice()"
-            [invisible]="(showForm() == 'register')" />
-        <register (showLoginForm)="changeForm($event)" [isSmallDevice]="isSmallDevice()"
+        <login (feedbackChange)="changeFeedbackMessage($event)" (showRegisterForm)="changeForm($event)"
+            [isSmallDevice]="isSmallDevice()" [invisible]="(showForm() == 'register')" />
+        <register (showTemplate)="changeTemplate($event)" (feedbackChange)="changeFeedbackMessage($event)"
+            (showLoginForm)="changeForm($event)" [isSmallDevice]="isSmallDevice()"
             [invisible]="(showForm() == 'login')" />
 
         <!-- This component won't be needed if we're on smaller devices -->
         @if (!isSmallDevice()) {
-            <toggle (changeToggle)="changeTemplate($event)" />
+        <toggle [actualTemplate]="showTemplate()" (changeToggle)="changeTemplate($event)" />
         }
+    </div>
+    <!-- Modal showing error or success  message -->
+    <div class="feedback-notification" [ngClass]="{'show': feedbackMessage().message}">
+        <span>{{ feedbackMessage().message}}</span>
     </div>
 </div>
