@@ -11,13 +11,8 @@
         <toggle [actualTemplate]="showTemplate()" (changeToggle)="changeTemplate($event)" />
         }
     </div>
-    <!-- @if (feedbackMessage().message) {
-        <span style="color: red; font-size: xx-large;">
-            A modal should be shown with the following message: {{feedbackMessage().message}}
-        </span>
-    } -->
-
+    <!-- Modal showing error or success  message -->
     <div class="feedback-notification" [ngClass]="{'show': feedbackMessage().message}">
-        <span>{{ feedbackMessage().message || 'No hay mensaje'}}</span>
+        <span>{{ feedbackMessage().message}}</span>
     </div>
 </div>

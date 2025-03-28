@@ -97,5 +97,10 @@ export class AuthComponent implements OnInit {
 
     protected changeFeedbackMessage(feedbackMessage: { ok: boolean, message: string }) {
         this.feedbackMessage.set(feedbackMessage);
+
+        // The notification dissapear after 5 seconds
+        setTimeout(() => {
+            this.feedbackMessage.set({ ok: true, message: '' });
+        }, 5000);
     }
 }
