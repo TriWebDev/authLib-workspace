@@ -1,2 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
-@import "tailwindcss";
+/* This is an example of a css reset */
+*, ::before, ::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+}
+
+body {
+  margin: 0;
+  line-height: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}

@@ -1,7 +1,16 @@
-<div class="h-screen flex flex-col justify-center items-center bg-gradient-to-r from-white to-indigo-300">
-    <div class="container bg-white relative shadow-xl rounded-3xl overflow-hidden w-[768px] min-h-[480px] max-w-full" [ngClass]="{'active': showTemplate() == 'login'}">
-        <login />
-        <register />
-        <toggle (changeToggle)="changeTemplate($event)" />
+    <div class="container" [ngClass]="{'active': showTemplate() == 'login'}">
+        <login (feedbackChange)="changeFeedbackMessage($event)" (showRegisterForm)="changeForm($event)"
+            [isSmallDevice]="isSmallDevice()" [invisible]="(showForm() == 'register')" />
+        <register (showTemplate)="changeTemplate($event)" (feedbackChange)="changeFeedbackMessage($event)"
+            (showLoginForm)="changeForm($event)" [isSmallDevice]="isSmallDevice()"
+            [invisible]="(showForm() == 'login')" />
+
+        <!-- This component won't be needed if we're on smaller devices -->
+        @if (!isSmallDevice()) {
+        <toggle [actualTemplate]="showTemplate()" (changeToggle)="changeTemplate($event)" />
+        }
     </div>
-</div>
+    <!-- Modal showing error or success  message -->
+    <div class="feedback-notification" [ngClass]="{'show': feedbackMessage().message}">
+        <span>{{ feedbackMessage().message}}</span>
+    </div>

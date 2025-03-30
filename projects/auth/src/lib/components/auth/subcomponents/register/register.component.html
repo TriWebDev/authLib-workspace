@@ -1,0 +1,12 @@
+<div class="register-container sign-up" [ngClass]="{'visible': !invisible()}">
+    <form class="register-form" [formGroup]="registerForm" (submit)="register()">
+        <div class="register-title">Create Account</div>
+        <input class="register-input" [ngClass]="{'invalid-input': isInvalidName(), 'valid-input': isValidName()}" formControlName="name" name="name"  type="text" placeholder="Name">
+        <input class="register-input" [ngClass]="{'invalid-input': isInvalidEmail(), 'valid-input': isValidEmail()}" formControlName="email" name="email" type="email" placeholder="Email">
+        <input class="register-input" [ngClass]="{'invalid-input': isInvalidPassword(), 'valid-input': isValidPassword()}" formControlName="password" name="password" type="password" placeholder="Password">
+        <button class="register-button" [disabled]="registerForm.invalid" [ngClass]="{'disabled': registerForm.invalid}">Sign Up</button>
+        @if (isSmallDevice()) {
+            <div class="change-text">Already have an account? <button class="change-button" (click)="changeToLoginForm($event)">Click here</button></div>
+        }
+    </form>
+</div>

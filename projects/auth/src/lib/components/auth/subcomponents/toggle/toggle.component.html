@@ -1,0 +1,9 @@
+<div class="toggle-container" [ngClass]="{'login': actualTemplate() == 'login', 'not-login': actualTemplate() != 'login'}">
+    <div class="toggle-exchanger">
+        @if (actualTemplate() === "login") {
+            <login-template (showLogin)="showLoginForm()" />
+        } @else {
+            <register-template (showRegister)="showRegisterForm()" />
+        }
+    </div>
+</div>

@@ -1,63 +1,141 @@
-# Auth
+<h1 align="center"> Auth Component </h1>
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.0.
+<h4 align="center">A very customizable component built for any Angular project</a>.</h4>
 
-## Code scaffolding
+<p align="center">
+  <a href="https://github.com/TriWebDev/librariesAppTWD/pulls">
+    <img src="https://img.shields.io/github/issues-pr/triwebdev/librariesAppTWD">
+  </a>
+  <a href="https://github.com/TriWebDev/librariesAppTWD/issues">
+    <img src="https://img.shields.io/github/issues/triwebdev/librariesAppTWD">
+  </a>
+  <a href="https://github.com/TriWebDev/librariesAppTWD">
+    <img src="https://img.shields.io/badge/version-1.0.0-green.svg">
+  </a>
+  <a href="">
+    <img src="https://img.shields.io/badge/demo-online-green.svg">
+  </a>
+</p>
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+This is a component powered by Angular fully customizable via inputs that provides a functional auth, such as a login and a singn in.
 
-```bash
-ng generate component component-name
-```
+![Chat Preview](https://i.imgur.com/VBsrZ37.png)
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+<p align="center">
+  <a href="#how-to-use">How To Use</a> •
+  <a href="#download">Download</a> •
+  <a href="#authors">Authors</a>
+  <!-- <a href="#related">Related</a> • -->
+  <!-- <a href="#license">License</a> -->
+</p>
 
-```bash
-ng generate --help
-```
+## How To Use
 
-## Building
+### Basic Instalation
 
-To build the library, run:
+To use this component, you'll need to download the [npm](http://npmjs.com) package.
 
-```bash
-ng build auth
-```
-
-This command will compile your project, and the build artifacts will be placed in the `dist/` directory.
-
-### Publishing the Library
-
-Once the project is built, you can publish your library by following these steps:
-
-1. Navigate to the `dist` directory:
-   ```bash
-   cd dist/auth
-   ```
-
-2. Run the `npm publish` command to publish your library to the npm registry:
-   ```bash
-   npm publish
-   ```
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+From your command line:
 
 ```bash
-ng test
+# Install this package
+$ npm install @triwebdev/auth-component
 ```
 
-## Running end-to-end tests
+Once you have download the package you can import it in the .ts of your component like this:
 
-For end-to-end (e2e) testing, run:
+```ts
+import { Component } from "@angular/core";
+import { AuthComponent } from "auth";
 
-```bash
-ng e2e
+@Component({
+    selector: "app-auth-implementation",
+    imports: [AuthComponent],
+    templateUrl: "./auth-implementation.component.html",
+    styleUrl: "./auth-implementation.component.css",
+})
+export class AuthImplementationComponent {}
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+And in your .html like this:
 
-## Additional Resources
+```html
+<app-auth></app-auth>
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Component Configuration
+
+Once you have the component installed and working you can do several customizations:
+
+#### Provider
+
+In the app.config.ts you have to add a provider that should look like this:
+
+```ts
+provideAuth({ apiUrl: "http://localhost:3000/", loginRedirectionUrl: "/home" });
+```
+
+The apiUrl parameter is the backend main url that will be handling the requests from the form. In this example, the login endpoint of the backend would be "http://localhost:3000/login" and the sign up endpoint would be: "http://localhost:3000/create". Thus, if you put the value "http://localhost:3000/users" in the apiUrl parameter, the request will be handled in the "http://localhost:3000/users/login" for the login form and in the register "http://localhost:3000/users/create".
+
+Example on how the request.body is received in the login:
+
+```ts
+{
+  email: "mymail@mail.com",
+  password: "myPassword",
+}
+```
+
+Example on how the request.body is received in the signup endpoint:
+
+```ts
+{
+  name: "myName",
+  email: "myEmail@mail.com",
+  password: "myPassword",
+}
+```
+
+Keep in mind that the form makes an HTTP requests, so after adding all of it, the file ```app.config.ts``` should look similar to this:
+
+
+```ts
+export const appConfig: ApplicationConfig = {
+    providers: [
+        provideZoneChangeDetection({ eventCoalescing: true }),
+        provideRouter(routes),
+        provideHttpClient(),
+        provideAuth({apiUrl: 'http://localhost:3000/', loginRedirectionUrl: '/home' })
+    ]
+};
+```
+
+#### Inputs
+
+The component have some different inputs that you can use for customizate the theme.
+
+The ```theme``` input allows you to choose between some established themes like 'classicB&W' and 'neoViolet' :
+```html
+<app-auth [theme]="'classicB&W'"></app-auth>
+```
+The ```primary```, ```secundary``` and ```input``` input allows you to put customizable colors to the component:
+
+```html
+<app-auth [primary]="'#f62'" [secundary]="'#2f2'" [input]="'#0ff'"></app-auth>
+```
+
+## Download
+
+You can download the latest installable version of the component [here](https://github.com/TriWebDev/librariesAppTWD) .
+
+## Authors
+
+The authors of the project:
+
+> GitHub [@DavMunHer](https://github.com/DavMunHer) &nbsp;&middot;&nbsp;
+> Linkedin [@David Muñoz Herrero](https://www.linkedin.com/in/davmunher/) &nbsp;&middot;&nbsp;
+
+> GitHub [@OscBarCan](https://github.com/oscbarcan) &nbsp;&middot;&nbsp;
+> Linkedin [@Oscar Barber Canet](https://www.linkedin.com/in/osbarca/) &nbsp;&middot;&nbsp;
+
+---
