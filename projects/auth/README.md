@@ -39,7 +39,7 @@ From your command line:
 
 ```bash
 # Install this package
-$ npm install ---
+$ npm install @triwebdev/auth-component
 ```
 
 Once you have download the package you can import it in the .ts of your component like this:
@@ -94,6 +94,20 @@ Example on how the request.body is received in the signup endpoint:
   email: "myEmail@mail.com",
   password: "myPassword",
 }
+```
+
+Keep in mind that the form makes an HTTP requests, so after adding all of it, the file ```app.config.ts``` should look similar to this:
+
+
+```ts
+export const appConfig: ApplicationConfig = {
+    providers: [
+        provideZoneChangeDetection({ eventCoalescing: true }),
+        provideRouter(routes),
+        provideHttpClient(),
+        provideAuth({apiUrl: 'http://localhost:3000/', loginRedirectionUrl: '/home' })
+    ]
+};
 ```
 
 #### Inputs
