@@ -1,6 +1,7 @@
 {
   "name": "@triwebdev/auth-component",
-  "version": "1.0.2",
+  "version": "1.0.4",
+  "license": "GPL-3.0-only",
   "description": "Angular library containing an Auth Component",
   "peerDependencies": {
     "@angular/common": "^19.1.0",
