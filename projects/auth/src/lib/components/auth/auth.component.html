@@ -1,4 +1,3 @@
-<div class="main-container">
     <div class="container" [ngClass]="{'active': showTemplate() == 'login'}">
         <login (feedbackChange)="changeFeedbackMessage($event)" (showRegisterForm)="changeForm($event)"
             [isSmallDevice]="isSmallDevice()" [invisible]="(showForm() == 'register')" />
@@ -15,4 +14,3 @@
     <div class="feedback-notification" [ngClass]="{'show': feedbackMessage().message}">
         <span>{{ feedbackMessage().message}}</span>
     </div>
-</div>
