@@ -92,9 +92,7 @@ export class RegisterComponent {
                 const sentMessage = errorResponse.error.messageToShow;
                 this.feedbackChange.emit({
                     ok: false,
-                    // message: sentMessage ? sentMessage : 'An error has occurred'
-                    message: 'An error has occurred'
-
+                    message: sentMessage ? sentMessage : 'An error has occurred'
                 })
             }
         });
