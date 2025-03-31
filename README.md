@@ -1,4 +1,4 @@
-# LibrariesAppTWD
+# AuthLib-Workspace
 There's an app to try the libs at the ``/projects/app``
 You can make changes on the component of the library directly modifying the files. You will always have to use the command ``ng s app``
 
