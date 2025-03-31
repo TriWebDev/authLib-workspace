@@ -3,17 +3,23 @@
 <h4 align="center">A very customizable component built for any Angular project</a>.</h4>
 
 <p align="center">
-  <a href="https://github.com/TriWebDev/librariesAppTWD/pulls">
-    <img src="https://img.shields.io/github/issues-pr/triwebdev/librariesAppTWD">
+  <a href="https://github.com/TriWebDev/authLib-workspace/pulls">
+    <img src="https://img.shields.io/github/issues-pr/triwebdev/authLib-workspace" alt="pull requests">
   </a>
-  <a href="https://github.com/TriWebDev/librariesAppTWD/issues">
-    <img src="https://img.shields.io/github/issues/triwebdev/librariesAppTWD">
+  <a href="https://github.com/TriWebDev/authLib-workspace/issues">
+    <img src="https://img.shields.io/github/issues/triwebdev/authLib-workspace" alt="issues">
   </a>
-  <a href="https://github.com/TriWebDev/librariesAppTWD">
-    <img src="https://img.shields.io/badge/version-1.0.0-green.svg">
+<a href="https://github.com/TriWebDev/authLib-workspace/commits/authLib/">
+    <img src="https://img.shields.io/github/last-commit/TriWebDev/authLib-workspace" alt="last commit">
+</a>
+  <a href="https://www.npmjs.com/package/@triwebdev/auth-component">
+    <img src="https://img.shields.io/npm/v/@triwebdev/auth-component" alt="npm version">
   </a>
+  <a href="https://github.com/TriWebDev/authLib-workspace/blob/master/projects/auth/LICENSE">
+    <img src="https://img.shields.io/github/license/TriWebDev/authLib-workspace" alt="license">
+</a>
   <a href="">
-    <img src="https://img.shields.io/badge/demo-online-green.svg">
+    <img src="https://img.shields.io/badge/demo-WIP-green.svg" alt="demo">
   </a>
 </p>
 
@@ -25,8 +31,6 @@ This is a component powered by Angular fully customizable via inputs that provid
   <a href="#how-to-use">How To Use</a> •
   <a href="#download">Download</a> •
   <a href="#authors">Authors</a>
-  <!-- <a href="#related">Related</a> • -->
-  <!-- <a href="#license">License</a> -->
 </p>
 
 ## How To Use
@@ -96,17 +100,11 @@ Example on how the request.body is received in the signup endpoint:
 }
 ```
 
-Keep in mind that the form makes an HTTP requests, so after adding all of it, the file ```app.config.ts``` should look similar to this:
-
+Keep in mind that the form makes an HTTP requests, so after adding all of it, the file `app.config.ts` should look similar to this:
 
 ```ts
 export const appConfig: ApplicationConfig = {
-    providers: [
-        provideZoneChangeDetection({ eventCoalescing: true }),
-        provideRouter(routes),
-        provideHttpClient(),
-        provideAuth({apiUrl: 'http://localhost:3000/', loginRedirectionUrl: '/home' })
-    ]
+    providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideHttpClient(), provideAuth({ apiUrl: "http://localhost:3000/", loginRedirectionUrl: "/home" })],
 };
 ```
 
@@ -114,11 +112,13 @@ export const appConfig: ApplicationConfig = {
 
 The component have some different inputs that you can use for customizate the theme.
 
-The ```theme``` input allows you to choose between some established themes like 'classicB&W' and 'neoViolet' :
+The `theme` input allows you to choose between some established themes like 'classicB&W' and 'neoViolet' :
+
 ```html
 <app-auth [theme]="'classicB&W'"></app-auth>
 ```
-The ```primary```, ```secundary``` and ```input``` input allows you to put customizable colors to the component:
+
+The `primary`, `secundary` and `input` input allows you to put customizable colors to the component:
 
 ```html
 <app-auth [primary]="'#f62'" [secundary]="'#2f2'" [input]="'#0ff'"></app-auth>
