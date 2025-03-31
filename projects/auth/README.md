@@ -72,7 +72,6 @@ And in your .html like this:
 Once you have the component installed and working you can do several customizations:
 
 #### Provider
-
 In the app.config.ts you have to add a provider that should look like this:
 
 ```ts
