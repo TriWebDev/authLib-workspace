@@ -18,12 +18,12 @@
   <a href="https://github.com/TriWebDev/authLib-workspace/blob/master/projects/auth/LICENSE">
     <img src="https://img.shields.io/github/license/TriWebDev/authLib-workspace" alt="license">
 </a>
-  <a href="">
-    <img src="https://img.shields.io/badge/demo-WIP-green.svg" alt="demo">
+  <a href="https://twd-components-gallery-eb2rfxh8n-dmuoher.vercel.app/components/auth/playground">
+    <img src="https://img.shields.io/badge/demo-View Deployement-green.svg" alt="demo">
   </a>
 </p>
 
-This is a component powered by Angular fully customizable via inputs that provides a functional auth, such as a login and a singn in.
+This is a component powered by Angular fully customizable via inputs that provides a functional auth, such as a login and a sign in.
 
 ![Chat Preview](https://i.imgur.com/VBsrZ37.png)
 
@@ -50,7 +50,7 @@ Once you have download the package you can import it in the .ts of your componen
 
 ```ts
 import { Component } from "@angular/core";
-import { AuthComponent } from "auth";
+import { AuthComponent } from "@triwebdev/auth-component";
 
 @Component({
     selector: "app-auth-implementation",
@@ -136,7 +136,7 @@ Note that we return directly the JWT string in the response for the component to
 
 #### Inputs
 
-The component have some different inputs that you can use for customizate the theme.
+The component have some different inputs that you can use for customizing the theme.
 
 The `theme` input allows you to choose between some established themes like 'classicB&W' and 'neoViolet' :
 
@@ -144,7 +144,7 @@ The `theme` input allows you to choose between some established themes like 'cla
 <app-auth [theme]="'classicB&W'"></app-auth>
 ```
 
-The `primary`, `secundary` and `input` input allows you to put customizable colors to the component:
+The `primary`, `secundary` and `input` input allows you to put customized colors to the component:
 
 ```html
 <app-auth [primary]="'#f62'" [secundary]="'#2f2'" [input]="'#0ff'"></app-auth>
