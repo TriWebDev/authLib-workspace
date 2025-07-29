@@ -99,13 +99,40 @@ Example on how the request.body is received in the signup endpoint:
 }
 ```
 
-Keep in mind that the form makes an HTTP requests, so after adding all of it, the file `app.config.ts` should look similar to this:
+Keep in mind that the form makes an HTTP requests, so after adding all the previous configs, the file `app.config.ts` should look similar to this:
 
 ```ts
 export const appConfig: ApplicationConfig = {
     providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideHttpClient(), provideAuth({ apiUrl: "http://localhost:3000/", loginRedirectionUrl: "/home" })],
 };
 ```
+
+#### How is the login managed internally?
+For storing the user data, in the current version, we are using the localStorage for saving the response sent from the login endpoint. The data is stored in the "token" item. This is the code that is currently handling this logic:
+
+```ts
+if (response.ok) {
+    const token = response.toString();
+    localStorage.setItem('token', token);
+    this.router.navigate([this.config.loginRedirectionUrl]);
+} 
+```
+
+Please note that this will likely be changed in future versions of the component for allowing the user to customize how the information is stored.
+
+For making the above to work, you should return a string in your endpoint response. This would a preview on how this could be done:
+```js
+app.post('/login', (req, res) => {
+  /* Manage your login logic here */
+  const loginSuccessful = true;
+  if (loginSuccessful) {
+    /* Store user information in a JWT */
+    res.json("MyJWT");
+  }
+});
+```
+
+Note that we return directly the JWT string in the response for the component to store the data successfully.
 
 #### Inputs
 
