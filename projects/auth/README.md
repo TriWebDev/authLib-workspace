@@ -18,7 +18,7 @@
   <a href="https://github.com/TriWebDev/authLib-workspace/blob/master/projects/auth/LICENSE">
     <img src="https://img.shields.io/github/license/TriWebDev/authLib-workspace" alt="license">
 </a>
-  <a href="https://twd-components-gallery-eb2rfxh8n-dmuoher.vercel.app/components/auth/playground">
+  <a href="https://twd-components-gallery.vercel.app/components/auth/playground">
     <img src="https://img.shields.io/badge/demo-View Deployement-green.svg" alt="demo">
   </a>
 </p>
