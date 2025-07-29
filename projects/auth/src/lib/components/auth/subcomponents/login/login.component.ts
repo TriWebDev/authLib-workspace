@@ -92,8 +92,10 @@ export class LoginComponent {
         this.authService.login(userInfo).subscribe({
             next: (response) => {
                 if (response.ok) {
-                    const token = response.toString();
-                    localStorage.setItem('token', token);
+                    const token = response.body?.toString();
+                    if (token) {
+                        localStorage.setItem('token', token!);
+                    }
                     this.router.navigate([this.config.loginRedirectionUrl]);
                 } 
                 this.loginForm.reset();
